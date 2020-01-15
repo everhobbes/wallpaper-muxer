@@ -5,7 +5,7 @@ import shutil
 from PIL import Image
 
 # enter the directory with your images here:
-basepath = 'F:/Personal/Pictures/Artwork/'
+basepath = 'samples/'
 
 # You can change output folders here:
 intermediate = 'intermediate/'
