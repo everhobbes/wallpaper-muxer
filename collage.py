@@ -1,11 +1,12 @@
-print("starting second phase")
-
 import os
 import random
 from PIL import Image
 
 intermediate = 'intermediate/'
 output = 'output/mixed/'
+
+# change your max image width here:
+sizex = 1920
 
 # the functions used to combine images, max 4
 def concat_2(im1, im2):
@@ -47,7 +48,7 @@ while place <= len(image_list) - 1:
         im2 = Image.open(image_list[place + 1])
         im3 = Image.open(image_list[place + 2])
         # check if 3 works
-        if im1.width + im2.width + im3.width < 1921:
+        if im1.width + im2.width + im3.width <= sizex:
             concat_3(im1, im2, im3).save('output/mixed/mixed' + str(i) + '.jpg')
             im1.close()
             im2.close()
@@ -59,7 +60,7 @@ while place <= len(image_list) - 1:
             place += 3
             print('saved 3')
         # check if 2 works
-        elif im1.width + im2.width < 1921:
+        elif im1.width + im2.width <= sizex:
             concat_2(im1, im2).save('output/mixed/mixed' + str(i) + '.jpg')
             im1.close()
             im2.close()
@@ -68,7 +69,7 @@ while place <= len(image_list) - 1:
             i += 1
             place += 2
             print('saved 2')
-        # give up and save one
+        # give up and leave it alone
         else:
             x += 1
             place += 1
@@ -77,7 +78,7 @@ while place <= len(image_list) - 1:
         im1 = Image.open(image_list[place])
         im2 = Image.open(image_list[place + 1])
         # check if 2 works
-        if im1.width + im2.width < 1921:
+        if im1.width + im2.width <= sizex:
             concat_2(im1, im2).save('output/mixed/mixed' + str(i) + '.jpg')
             im1.close()
             im2.close()
@@ -86,7 +87,7 @@ while place <= len(image_list) - 1:
             i += 1
             place += 2
             print('saved 2')
-        # give up and save one
+        # give up and leave it alone
         else:
             x += 1
             place += 1
@@ -96,7 +97,4 @@ while place <= len(image_list) - 1:
         place += 1
         print('left 1 alone')
 
-
-# when list is exhausted (or a reasonable limit is reached) settle and save to output folder and remove used items from list
-# 	repeat
 print("finished")
