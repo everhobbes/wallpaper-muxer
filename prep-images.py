@@ -5,7 +5,7 @@ from PIL import Image
 # enter the directory with your images here:
 basepath = 'samples/'
 
-# You can change output folders here:
+# don't change these:
 intermediate = 'intermediate/'
 output = 'output/'
 
