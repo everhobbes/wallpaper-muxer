@@ -5,11 +5,11 @@ Usage:
 
 Edit the "pre-images.py" file to choose your input images folder and desired image size (default is 1920 x 1080) or leave as is and copy your images to the "samples" folder.
 
-Run "pre-images.py" to do the initial sizing and image sorting. Images that are already 1920 x 1080 or are already exactly 1080px tall will be moved immediately to the output folder. Images different than those dimensions will be scaled down or up respectively, then saved to the intermediate folder.
+Run "pre-images.py" to do the initial sizing and image sorting. Images that are already 1920 x 1080 will be moved immediately to the output folder. Images different than those dimensions will be scaled down or up respectively, then saved to the intermediate folder.
 
-Once the pre-processing is done, edit "collage.py" with your desired image size (if different than the default) and run. It will randomize the list of images from the "intermediate" folder, and collage them together into groupings that fit within 1920px wide. Usually this means 2 images will be combined (max is 3). The resulting image will be saved to the output folder, and the used images will be deleted from the intermediate folder.
+Once the pre-processing is done, edit "collage.py" with your desired image size (if different than the default) and run and desired method. It will take images from the "intermediate" folder, and collage them together into groupings that fit within 1920px wide. The resulting image will be saved to the output folder, and the used images will be deleted from the intermediate folder.
 
-Multiple runs can be done of "collage.py" back to back to re-randomize the remaining images to try to combine them. After a few runs, you should be left with images that are too wide to combine together. You can then cut and paste those remaining images into the output folder manually (or do whatever you want with them, I'm not your mom).
+There are two methods for combining images: smallest + biggest, or random. Set the preferred method in collage.py. Smallest to biggest tends to create more evenly sized images and won't leave un-matched items.
 
 And voila: perfectly sized images that make use of more of your monitor's space for wallpapers, and can be tiled without cropping.
 
